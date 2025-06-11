@@ -1,10 +1,20 @@
-# Mental Health Sentiment and Emotion Classifier
+# AI Mental Health Chat Helper
 
-This project classifies tweets into Positive, Neutral, or Negative sentiments and identifies underlying emotions using NLP models.
+A mental health chat-based application that detects user emotions and provides personalized healing guides.
+
+## Features
+
+- 💬 Text-based chat interface
+- 🎯 Real-time emotion detection
+- 🧘‍♀️ Personalized healing guide recommendations
+- 📊 Session-based emotion analytics
+
+## Tech Stack
+
+- Python
+- Streamlit
 
 ## Project Structure
 
-- `data/` - Dataset or scripts to download/load data  
-- `models/` - Trained model files  
-- `app/` - Streamlit application code  
-- `notebooks/` - Colab or Jupyter notebooks for model training  
+- `app/` - Streamlit application code
+- `data/` - Healing guide recommendations
