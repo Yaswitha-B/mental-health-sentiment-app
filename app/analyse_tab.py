@@ -31,14 +31,34 @@ def get_user_messages():
         return []
     return [msg["content"] for msg in st.session_state["chat_history"] if msg["role"] == "user"]
 
-def analyze_emotions(text):
+def analyze_emotions(text, top_n=4):
     if not text.strip():
         return []
     scores = classifier(text)[0]
-    return [
+    emotions = [
         (GOEMOTIONS_LABELS.get(item["label"], item["label"]), item["score"])
-        for item in scores if item["score"] >= EMOTION_THRESHOLD
+        for item in scores 
+        if item["score"] >= EMOTION_THRESHOLD and item["label"] != "neutral"
     ]
+    emotions = sorted(emotions, key=lambda x: x[1], reverse=True)
+    return emotions[:top_n] if len(emotions) > 4 else emotions
+
+def analyse_tab():
+    st.header("🔎 Emotion Analysis")
+    st.info("Analyze emotions expressed in your chat messages.")
+
+    user_messages = get_user_messages()
+    if not user_messages:
+        st.warning("Start a conversation in the chat tab to analyze emotions.")
+        return
+
+    if st.button("Analyze Messages", key="analyse_btn"):
+        with st.spinner("Analyzing emotions..."):
+            summary = summerize_user_messages(user_messages)
+            emotions = analyze_emotions(summary, top_n=3)
+            st.session_state["detected_emotions"] = emotions  
+            st.subheader("📊 Detected Emotions")
+            display_emotions(emotions)
 
 def render_emotion_card(emotion, score):
     percentage = int(score * 100)
@@ -122,19 +142,3 @@ def summerize_user_messages(messages):
 
     except Exception as e:
         return f"Error generating summary: {str(e)}"
-
-def analyse_tab():
-    st.header("🔎 Emotion Analysis")
-    st.info("Analyze emotions expressed in your chat messages.")
-
-    user_messages = get_user_messages()
-    if not user_messages:
-        st.warning("Start a conversation in the chat tab to analyze emotions.")
-        return
-
-    if st.button("Analyze Messages", key="analyse_btn"):
-        with st.spinner("Analyzing emotions..."):
-            summary = summerize_user_messages(user_messages)
-            emotions = analyze_emotions(summary)
-            st.subheader("📊 Detected Emotions")
-            display_emotions(emotions)
