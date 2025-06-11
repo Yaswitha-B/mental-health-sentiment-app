@@ -52,7 +52,7 @@ def handle_message():
         st.session_state["chat_history"].append({"role": "assistant", "content": bot_response})
         st.session_state["waiting_for_response"] = False
         st.session_state["msg_input"] = ""
-        st.rerun()
+        # st.rerun()
 
 def get_bot_response():
     try:
