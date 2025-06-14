@@ -56,7 +56,6 @@ def handle_message():
 
 def get_bot_response():
     try:
-        raise Exception("API Key not found!")
         history = st.session_state["chat_history"]
         
         # Build context
