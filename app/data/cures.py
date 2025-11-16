@@ -1,7 +1,3 @@
-# ============================================================================
-# EMOTION CURES - For the 6 emotions detected by the emotion model
-# Model detects: sadness, joy, love, anger, fear, surprise
-# ============================================================================
 emotion_cures = {
     "anger": [
         "Practice deep breathing (4-7-8 technique)",
@@ -92,11 +88,7 @@ emotion_cures = {
     ]
 }
 
-# ============================================================================
-# MENTAL HEALTH CONDITION SUPPORT - For the 6 conditions detected by MH model
-# Model detects: Depression, Anxiety, Stress, Bipolar, Personality disorder, Normal
-# These are NOT diagnoses, just helpful activities for common experiences
-# ============================================================================
+
 mental_health_cures = {
     "Anxiety": [
         "Practice 4-7-8 breathing (inhale 4, hold 7, exhale 8)",
@@ -232,9 +224,7 @@ mental_health_cures = {
     ]
 }
 
-# ============================================================================
-# CRISIS RESOURCES - For suicide detection by the suicide model
-# ============================================================================
+
 crisis_resources = {
     "helpline_name": "iCall",
     "helpline_description": "iCall is a telephone and email based counselling service run by School of Human Ecology, Tata Institute of Social Sciences, that offers free telephone and email-based counseling services, to individuals in emotional and psychological distress, across age, language, gender, sexual orientation and issues, through a team of qualified and trained mental health professionals.",
