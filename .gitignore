@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
+dist/
+build/
 
 # Environments
 .env
@@ -10,20 +13,46 @@ __pycache__/
 env/
 venv/
 ENV/
+env.bak/
+venv.bak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb_checkpoints/
 
 # IDEs
 .idea/
 .vscode/
 *.swp
+*.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Model files
-models/*.pth
-models/*.bin
-models/*.onnx
+# Models - DON'T PUSH (too large, 500MB+ each)
+models/
+*.pth
+*.bin
+*.onnx
+*.h5
+*.pkl
+*.pt
+*.safetensors
+
+# Datasets - DON'T PUSH (large files)
+data/
+*.csv
+*.tsv
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+.cache/
+```
