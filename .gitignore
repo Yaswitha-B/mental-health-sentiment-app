@@ -43,9 +43,10 @@ models/
 *.safetensors
 
 # Datasets - DON'T PUSH (large files)
-data/
-*.csv
-*.tsv
+data/*.csv
+data/*.tsv
+data/**/*.csv
+data/**/*.tsv
 
 # Logs
 *.log
